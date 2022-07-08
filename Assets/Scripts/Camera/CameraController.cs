@@ -4,7 +4,15 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    // Update is called once per frame
+    public static CameraController Instance;
+
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Update()
     {
         if (_player.transform.position.y > this.transform.position.y)
