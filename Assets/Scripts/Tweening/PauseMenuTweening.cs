@@ -15,17 +15,29 @@ public class PauseMenuTweening : MonoBehaviour
         {
             Instance = this;
         }
-        DOTween.Init();
     }
 
     public void OnPause()
     {
-        _menu.DOMove(_menuPointA.position, 2f);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_menu.DOMove(_menuPointA.position, 1f));
+        sequence.OnComplete(Show);
     }
     public void OnExitFromMenu()
     {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(_menu.DOMove(_menuPointB.position, 1f));
+        sequence.OnComplete(Show2);
 
-        _menu.DOMove(_menuPointB.position, 2f);
+    }
+    private void Show()
+    {
+        // Debug.Log(1);
+    }
+
+    private void Show2()
+    {
+        // Debug.Log(2);
 
     }
 }

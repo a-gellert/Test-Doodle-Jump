@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Buttons : MonoBehaviour
 {
+    [SerializeField] private PauseMenuTweening _pauseMenuTween;
+    [SerializeField] private MainMenuTweening _mainMenuTween;
     public void OnStart()
     {
         Player.Instance.RestartGame();
