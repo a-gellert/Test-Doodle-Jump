@@ -18,11 +18,13 @@ public class Player : MonoBehaviour
     }
     public void StartGame()
     {
+
         IsOver = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
     public void RestartGame()
     {
+        YDistance = 0;
         transform.position = new Vector3(0, 1, 0);
         StartGame();
     }
@@ -44,11 +46,10 @@ public class Player : MonoBehaviour
         if (YDistance < transform.position.y)
         {
             YDistance = transform.position.y;
-            Debug.Log(YDistance);
-
         }
         if (YDistance - transform.position.y > 6)
         {
+            Debug.Log(22);
             Player.Instance.PauseGame();
             PauseMenuTweening.Instance.OnPause();
             IsOver = true;

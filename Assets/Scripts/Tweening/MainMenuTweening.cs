@@ -20,8 +20,6 @@ public class MainMenuTweening : MonoBehaviour
         {
             Instance = this;
         }
-        DOTween.Init();
-
     }
     public void OnPlayGame()
     {
