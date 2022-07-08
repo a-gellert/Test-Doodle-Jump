@@ -4,7 +4,8 @@ public class Player : MonoBehaviour
 {
     public static Player Instance;
     public Rigidbody2D rb;
-    public float YDistance { get; set; } = 0;
+    public float YDistance { get; private set; } = 0;
+    public bool IsOver { get; private set; } = false;
 
     void Start()
     {
@@ -13,15 +14,17 @@ public class Player : MonoBehaviour
         {
             Instance = this;
         }
-        // rb.bodyType = RigidbodyType2D.Static;
+        rb.bodyType = RigidbodyType2D.Static;
     }
     public void StartGame()
     {
+        IsOver = false;
         rb.bodyType = RigidbodyType2D.Dynamic;
     }
     public void RestartGame()
     {
         transform.position = new Vector3(0, 1, 0);
+        StartGame();
     }
     public void PauseGame()
     {
@@ -46,20 +49,19 @@ public class Player : MonoBehaviour
         }
         if (YDistance - transform.position.y > 6)
         {
-            Debug.Log("semert");
+            Player.Instance.PauseGame();
+            PauseMenuTweening.Instance.OnPause();
+            IsOver = true;
         }
     }
 
     public void OnLeft()
     {
-        Debug.Log("left");
-
         rb.velocity = new Vector2(-1.5f, rb.velocity.y);
     }
     public void OnRight()
     {
         rb.velocity = new Vector2(1.5f, rb.velocity.y);
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
