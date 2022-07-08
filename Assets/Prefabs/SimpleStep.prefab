@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e438d2e73a6a1234ca47d88614aec00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 8
 --- !u!114 &4926872167154741029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00de96c4c7732b740840be4ee218cf9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spring: {fileID: 9108405503996859818}
+  _jetPack: {fileID: 3809641281750987849}
 --- !u!61 &7965886202180988547
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +123,7 @@ GameObject:
   - component: {fileID: 1294354525786839774}
   m_Layer: 0
   m_Name: Jetpack
-  m_TagString: Untagged
+  m_TagString: Jetpack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f83d51464798e488870d26314d25fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 20
 --- !u!212 &4102818154985345231
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -356,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e438d2e73a6a1234ca47d88614aec00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _force: 16
 --- !u!212 &4190717070644749583
 SpriteRenderer:
   m_ObjectHideFlags: 0
